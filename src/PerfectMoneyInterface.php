@@ -1,4 +1,7 @@
 <?php
+
+namespace charlesassets\LaravelPerfectMoney;
+
 /**
  * Interface PerfectMoney
  */

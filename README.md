@@ -28,7 +28,7 @@ Add Aliases
 
 Publish Configuration file
 ```
-php artisan vendor:publish --provider="Charlesassets\LaravelPerfectmoney\PerfectMoneyServiceProvider" --tag="config"
+php artisan vendor:publish --provider="charlesassets\LaravelPerfectMoney\LaravelPerfectMoneyServiceProvider" --tag="config"
 ```
 
 Edit .env
@@ -56,7 +56,7 @@ If you want to customize form, follow these steps.
 
 ### 1.Publish view
 ```
-php artisan vendor:publish --provider="Charlesassets\LaravelPerfectmoney\PerfectMoneyServiceProvider" --tag="views"
+php artisan vendor:publish --provider="charlesassets\LaravelPerfectMoney\LaravelPerfectMoneyServiceProvider" --tag="views"
 ```
 ### 2.Edit your view at /resources/views/vendor/perfectmoney/perfectmoney.php
 
