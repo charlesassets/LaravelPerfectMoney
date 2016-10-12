@@ -12,22 +12,105 @@ Via Composer
 $ composer require charlesassets/laravelperfectmoney
 ```
 
-## Usage
+Add Provider
 
 ``` php
-$skeleton = new League\Skeleton();
-echo $skeleton->echoPhrase('Hello, League!');
+charlesassets\LaravelPerfectMoney\LaravelPerfectMoneyServiceProvider::class,
+```
+
+Add Aliases
+
+``` php
+'PerfectMoney' => charlesassets\LaravelPerfectMoney\PerfectMoney::class,
+```
+
+##Configuration
+
+Publish Configuration file
+```
+php artisan vendor:publish --provider="Charlesassets\LaravelPerfectmoney\PerfectMoneyServiceProvider" --tag="config"
+```
+
+Edit .env
+
+Add these lines at .env file, follow config/perfectmoney.php for configuration descriptions.
+``` php
+PM_ACCOUNTID=100000
+PM_PASSPHRASE=your_pm_password
+PM_MARCHANTID=U123456
+PM_MARCHANT_NAME="My Company"
+PM_UNITS=USD
+PM_ALT_PASSPHRASE=your_alt_passphrase
+PM_PAYMENT_URL=http://example.com/success
+PM_PAYMENT_URL_METHOD=null
+PM_NOPAYMENT_URL=http://example.com/fail
+PM_NOPAYMENT_URL_METHOD=null
+PM_STATUS_URL=null
+PM_SUGGESTED_MEMO=null
+PM_MEMO_EDITABLE=true
+```
+
+##Customizing views (Optional)
+
+If you want to customize form, follow these steps.
+
+### 1.Publish view
+```
+php artisan vendor:publish --provider="Charlesassets\LaravelPerfectmoney\PerfectMoneyServiceProvider" --tag="views"
+```
+### 2.Edit your view at /resources/views/vendor/perfectmoney/perfectmoney.php
+
+## Usage
+
+###Render Shopping Cart Form
+
+``` php
+PerfectMoney::render();
+```
+
+## API MODULES
+### Get Balance
+``` php
+$pm = new PerfectMoney;
+$balance = $pm->getBalance();
+
+if($balance['status'] == 'success')
+{
+	return $balance['USD'];
+}
+```
+
+### Send Money
+``` php
+// Required Fields
+$amount = 10.00;
+$sendTo = 'U1234567';
+
+// Optional Fields
+$description = 'Optional Description for send money';
+$payment_id = 'Optional_payment_id';
+
+$pm = new PerfectMoney;
+
+// Send Funds with all fields
+$sendMoney = $pm->getBalance($amount, $sendTo, $description, $payment_id);
+if($sendMoney['status'] == 'success')
+{
+	// Some code here
+}
+
+// Send Funds with required fields
+$sendMoney = $pm->getBalance($amount, $sendTo);
+if($sendMoney['status'] == 'error')
+{
+	// Payment Failed
+	return $sendMoney['message'];
+}
 ```
 
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Testing
-
-``` bash
-$ composer test
-```
 
 ## Contributing
 
@@ -35,11 +118,11 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 
 ## Security
 
-If you discover any security related issues, please email :author_email instead of using the issue tracker.
+If you discover any security related issues, please email charlesassets.com@gmail.com instead of using the issue tracker.
 
 ## Credits
 
-- [:author_name][link-author]
+- [charlesassets][link-author]
 - [All Contributors][link-contributors]
 
 ## License
