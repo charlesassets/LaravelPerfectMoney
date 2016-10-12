@@ -21,7 +21,7 @@ class LaravelPerfectMoneyServiceProvider extends ServiceProvider
 		
 		
 		// Views
-		$this->loadViewsFrom(__DIR__.'/../src/views', 'perfectmoney');
+		$this->loadViewsFrom(__DIR__.'/../src/views', 'laravelperfectmoney');
 		
 		$this->publishes([
 			__DIR__.'/../src/views' => resource_path('views/vendor/laravelperfectmoney'),

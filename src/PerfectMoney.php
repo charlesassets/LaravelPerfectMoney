@@ -144,11 +144,11 @@ class PerfectMoney {
 	public static function render($data = [], $view = 'perfectmoney')
 	{
 		
-		if(view()->exists('perfectmoney::' . $view)){
-			return view($view)->render();
+		if(view()->exists('laravelperfectmoney::' . $view)){
+			return view('laravelperfectmoney::' . $view)->render();
 		}
 		
-		return view('perfectmoney::perfectmoney', compact('data'));
+		return view('laravelperfectmoney::perfectmoney', compact('data'));
 	}
 	
 	
