@@ -1,4 +1,4 @@
-# :package_name
+# Laravel Perfect Money
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -54,17 +54,17 @@ If you discover any security related issues, please email :author_email instead 
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/:vendor/:package_name.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/charlesassets/laravelperfectmoney.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/:vendor/:package_name/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/:vendor/:package_name.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/:vendor/:package_name.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/:vendor/:package_name.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/charlesassets/laravelperfectmoney/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/charlesassets/laravelperfectmoney.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/charlesassets/laravelperfectmoney.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/charlesassets/laravelperfectmoney.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/:vendor/:package_name
-[link-travis]: https://travis-ci.org/:vendor/:package_name
-[link-scrutinizer]: https://scrutinizer-ci.com/g/:vendor/:package_name/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/:vendor/:package_name
-[link-downloads]: https://packagist.org/packages/:vendor/:package_name
-[link-author]: https://github.com/:author_username
+[link-packagist]: https://packagist.org/packages/charlesassets/laravelperfectmoney
+[link-travis]: https://travis-ci.org/charlesassets/laravelperfectmoney
+[link-scrutinizer]: https://scrutinizer-ci.com/g/charlesassets/laravelperfectmoney/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/charlesassets/laravelperfectmoney
+[link-downloads]: https://packagist.org/packages/charlesassets/laravelperfectmoney
+[link-author]: https://github.com/charlesassets
 [link-contributors]: ../../contributors
