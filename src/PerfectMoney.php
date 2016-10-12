@@ -148,7 +148,7 @@ class PerfectMoney {
 			return view('laravelperfectmoney::' . $view)->render();
 		}
 		
-		return view('laravelperfectmoney::perfectmoney', compact('data'));
+		return view('laravelperfectmoney::perfectmoney', $data);
 	}
 	
 	
