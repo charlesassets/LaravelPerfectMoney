@@ -7,7 +7,7 @@ use Carbon\Carbon;
 /**
  * Class PerfectMoney
  */
-class PerfectMoney implements PerfectMoneyInterface {
+class PerfectMoney {
 
     /**
      * @var string
