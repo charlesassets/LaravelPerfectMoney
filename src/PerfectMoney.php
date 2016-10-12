@@ -145,7 +145,7 @@ class PerfectMoney {
 	{
 		
 		if(view()->exists('laravelperfectmoney::' . $view)){
-			return view('laravelperfectmoney::' . $view)->render();
+			return view('laravelperfectmoney::' . $view, $data);
 		}
 		
 		return view('laravelperfectmoney::perfectmoney', $data);
