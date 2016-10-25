@@ -152,7 +152,7 @@ class PerfectMoney {
 			'PAYMENT_UNITS'			=> (isset($data['PAYMENT_UNITS']) ? $data['PAYMENT_UNITS'] : config('perfectmoney.units')),
 			'PAYMENT_ID'			=> (isset($data['PAYMENT_ID']) ? $data['PAYMENT_ID'] : null),
 			'PAYMENT_URL'			=> (isset($data['PAYMENT_URL']) ? $data['PAYMENT_URL'] : config('perfectmoney.payment_url') ),
-			'NOPAYMENT_URL'	=> (isset($data['NOPAYMENT_URL']) ? $data['NOPAYMENT_URL'] : config('perfectmoney.nopayment_url') ),
+			'NOPAYMENT_URL'			=> (isset($data['NOPAYMENT_URL']) ? $data['NOPAYMENT_URL'] : config('perfectmoney.nopayment_url') ),
 		];
 		
 		// Status URL
