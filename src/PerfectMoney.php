@@ -152,7 +152,7 @@ class PerfectMoney {
 			'PAYMENT_UNITS'			=> (isset($data['PAYMENT_UNITS']) ? $data['PAYMENT_UNITS'] : config('perfectmoney.units')),
 			'PAYMENT_ID'			=> (isset($data['PAYMENT_ID']) ? $data['PAYMENT_ID'] : null),
 			'PAYMENT_URL'			=> (isset($data['PAYMENT_URL']) ? $data['PAYMENT_URL'] : config('perfectmoney.payment_url') ),
-			'NOPAYMENT_URL_METHOD'	=> (isset($data['NOPAYMENT_URL_METHOD']) ? $data['NOPAYMENT_URL_METHOD'] : config('perfectmoney.nopayment_url_method') ),
+			'NOPAYMENT_URL'	=> (isset($data['NOPAYMENT_URL']) ? $data['NOPAYMENT_URL'] : config('perfectmoney.nopayment_url') ),
 		];
 		
 		// Status URL
@@ -180,7 +180,7 @@ class PerfectMoney {
 		$view_data['MEMO'] = null;
 		if(config('perfectmoney.suggested_memo') || isset($data['SUGGESTED_MEMO']) || isset($data['SUGGESTED_MEMO_NOCHANGE']))
 		{
-			if(!isset($data['SUGGESTED_MEMO']) && !isset($data['SUGGESTED_MEMO_NOCHANGE'])))
+			if(!isset($data['SUGGESTED_MEMO']) && !isset($data['SUGGESTED_MEMO_NOCHANGE']))
 			{
 				$view_data['MEMO_TYPE'] = (config('perfectmoney.memo_editable') ? 'SUGGESTED_MEMO' : 'SUGGESTED_MEMO_NOCHANGE');
 				$view_data['MEMO'] = config('perfectmoney.suggested_memo');
