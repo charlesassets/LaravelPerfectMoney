@@ -73,7 +73,7 @@ class PerfectMoney {
 			}
 			else
 			{
-				$data[] = [
+				$data['balance'] = [
 					'currency' 	=> $item[1],
 					'balance'	=> $item[2]
 				];
@@ -123,7 +123,7 @@ class PerfectMoney {
 			}
 			else
 			{
-				$data[$item[1]] = $item[2];
+				$data['data'][$item[1]] = $item[2];
 			}
 		}
 		
