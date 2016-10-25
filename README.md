@@ -129,9 +129,9 @@ If you discover any security related issues, please email charlesassets.com@gmai
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/charlesassets/laravelperfectmoney.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/charlesassets/laravel-perfectmoney.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/charlesassets/laravelperfectmoney.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/charlesassets/laravel-perfectmoney.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/charlesassets/laravel-perfectmoney
 [link-downloads]: https://packagist.org/packages/charlesassets/laravel-perfectmoney
