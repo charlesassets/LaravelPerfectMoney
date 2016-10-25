@@ -133,7 +133,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/charlesassets/laravelperfectmoney.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/charlesassets/laravelperfectmoney
-[link-downloads]: https://packagist.org/packages/charlesassets/laravelperfectmoney
+[link-packagist]: https://packagist.org/packages/charlesassets/laravel-perfectmoney
+[link-downloads]: https://packagist.org/packages/charlesassets/laravel-perfectmoney
 [link-author]: https://github.com/charlesassets
 [link-contributors]: ../../contributors
