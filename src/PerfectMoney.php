@@ -144,11 +144,62 @@ class PerfectMoney {
 	public static function render($data = [], $view = 'perfectmoney')
 	{
 		
-		if(view()->exists('laravelperfectmoney::' . $view)){
-			return view('laravelperfectmoney::' . $view, $data);
+		$view_data = [
+			'PAYEE_ACCOUNT'			=> (isset($data['PAYEE_ACCOUNT']) ? $data['PAYEE_ACCOUNT'] : config('perfectmoney.marchant_id')),
+			'PAYEE_NAME'			=> (isset($data['PAYEE_NAME']) ? $data['PAYEE_NAME'] : config('perfectmoney.marchant_name')),
+			'PAYMENT_AMOUNT'		=> (isset($data['PAYMENT_AMOUNT']) ? $data['PAYMENT_AMOUNT'] : ''),
+			'PAYEE_ACCOUNT'			=> (isset($data['PAYEE_ACCOUNT']) ? $data['PAYEE_ACCOUNT'] : config('perfectmoney.marchant_id')),
+			'PAYMENT_UNITS'			=> (isset($data['PAYMENT_UNITS']) ? $data['PAYMENT_UNITS'] : config('perfectmoney.units')),
+			'PAYMENT_ID'			=> (isset($data['PAYMENT_ID']) ? $data['PAYMENT_ID'] : null),
+			'PAYMENT_URL'			=> (isset($data['PAYMENT_URL']) ? $data['PAYMENT_URL'] : config('perfectmoney.payment_url') ),
+			'NOPAYMENT_URL_METHOD'	=> (isset($data['NOPAYMENT_URL_METHOD']) ? $data['NOPAYMENT_URL_METHOD'] : config('perfectmoney.nopayment_url_method') ),
+		];
+		
+		// Status URL
+		$view_data['STATUS_URL'] = null;
+		if(config('perfectmoney.status_url') || isset( $data['STATUS_URL'] ))
+		{
+			$view_data['STATUS_URL'] = (isset( $data['STATUS_URL']) ? $data['STATUS_URL'] : config('perfectmoney.status_url'));
 		}
 		
-		return view('laravelperfectmoney::perfectmoney', $data);
+		// Payment URL Method
+		$view_data['PAYMENT_URL_METHOD'] = null;
+		if(config('perfectmoney.payment_url_method') || isset($data['PAYMENT_URL_METHOD']))
+		{
+			$view_data['PAYMENT_URL_METHOD'] = (isset( $data['PAYMENT_URL_METHOD'] ) ? $data['PAYMENT_URL_METHOD'] : config('perfectmoney.payment_url_method'));
+		}
+		
+		// No Payment URL Method
+		$view_data['NOPAYMENT_URL_METHOD'] = null;
+		if(config('perfectmoney.nopayment_url_method') || isset($data['NOPAYMENT_URL_METHOD']))
+		{
+			$view_data['NOPAYMENT_URL_METHOD'] = (isset( $data['NOPAYMENT_URL_METHOD'] ) ? $data['NOPAYMENT_URL_METHOD'] : config('perfectmoney.nopayment_url_method'));
+		}
+		
+		// Memo
+		$view_data['MEMO'] = null;
+		if(config('perfectmoney.suggested_memo') || isset($data['SUGGESTED_MEMO']) || isset($data['SUGGESTED_MEMO_NOCHANGE']))
+		{
+			if(!isset($data['SUGGESTED_MEMO']) && !isset($data['SUGGESTED_MEMO_NOCHANGE'])))
+			{
+				$view_data['MEMO_TYPE'] = (config('perfectmoney.memo_editable') ? 'SUGGESTED_MEMO' : 'SUGGESTED_MEMO_NOCHANGE');
+				$view_data['MEMO'] = config('perfectmoney.suggested_memo');
+			}
+			else
+			{
+				$view_data['MEMO_TYPE'] = (isset( $data['SUGGESTED_MEMO'] ) ? 'SUGGESTED_MEMO' : 'SUGGESTED_MEMO_NOCHANGE');
+				$view_data['MEMO'] = ( isset( $data['SUGGESTED_MEMO'] ) ? $data['SUGGESTED_MEMO'] : $data['SUGGESTED_MEMO_NOCHANGE'] );
+			}
+		}
+		
+		// Custom view
+		if(view()->exists('laravelperfectmoney::' . $view)){
+			return view('laravelperfectmoney::' . $view, $view_data);
+		}
+		
+		
+		// Default view
+		return view('laravelperfectmoney::perfectmoney', $view_data);
 	}
 	
 	
