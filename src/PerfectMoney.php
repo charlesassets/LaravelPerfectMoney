@@ -180,7 +180,7 @@ class PerfectMoney {
 		$view_data['MEMO'] = null;
 		if(config('perfectmoney.suggested_memo') || isset($data['SUGGESTED_MEMO']))
 		{
-			$view_data['SUGGESTED_MEMO'] = (isset( $data['SUGGESTED_MEMO'] ) ? $data['SUGGESTED_MEMO'] : config('perfectmoney.suggested_memo'));
+			$view_data['MEMO'] = (isset( $data['SUGGESTED_MEMO'] ) ? $data['SUGGESTED_MEMO'] : config('perfectmoney.suggested_memo'));
 			
 		}
 		
