@@ -26,7 +26,7 @@
 	@endif
 	
 	@if( $MEMO )
-		<input type="hidden" name="{{ $MEMO_TYPE }}" value="{{ config('perfectmoney.suggested_memo') }}">
+		<input type="hidden" name="SUGGESTED_MEMO" value="{{ config('perfectmoney.suggested_memo') }}">
 	@endif
     <input type="submit" value="Proceed">
 </form>

@@ -167,18 +167,5 @@ return [
 
     'suggested_memo' => env('PM_SUGGESTED_MEMO', null),
 	
-    /*
-    |--------------------------------------------------------------------------
-    | Editable Memo field
-    |--------------------------------------------------------------------------
-    |
-    | If it is enabled memo field will be editable
-	| 
-	| Note: must be provided suggested Payment Description (suggested memo)
-    |
-    */
-
-    'memo_editable' => env('PM_MEMO_EDITABLE', true),
-	
 
 ];

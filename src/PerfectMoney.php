@@ -178,18 +178,10 @@ class PerfectMoney {
 		
 		// Memo
 		$view_data['MEMO'] = null;
-		if(config('perfectmoney.suggested_memo') || isset($data['SUGGESTED_MEMO']) || isset($data['SUGGESTED_MEMO_NOCHANGE']))
+		if(config('perfectmoney.suggested_memo') || isset($data['SUGGESTED_MEMO']))
 		{
-			if(!isset($data['SUGGESTED_MEMO']) && !isset($data['SUGGESTED_MEMO_NOCHANGE']))
-			{
-				$view_data['MEMO_TYPE'] = (config('perfectmoney.memo_editable') ? 'SUGGESTED_MEMO' : 'SUGGESTED_MEMO_NOCHANGE');
-				$view_data['MEMO'] = config('perfectmoney.suggested_memo');
-			}
-			else
-			{
-				$view_data['MEMO_TYPE'] = (isset( $data['SUGGESTED_MEMO'] ) ? 'SUGGESTED_MEMO' : 'SUGGESTED_MEMO_NOCHANGE');
-				$view_data['MEMO'] = ( isset( $data['SUGGESTED_MEMO'] ) ? $data['SUGGESTED_MEMO'] : $data['SUGGESTED_MEMO_NOCHANGE'] );
-			}
+			$view_data['SUGGESTED_MEMO'] = (isset( $data['SUGGESTED_MEMO'] ) ? $data['SUGGESTED_MEMO'] : config('perfectmoney.suggested_memo'));
+			
 		}
 		
 		// Custom view
