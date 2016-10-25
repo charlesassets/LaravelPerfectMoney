@@ -9,7 +9,7 @@
 Via Composer
 
 ``` bash
-$ composer require charlesassets/laravelperfectmoney
+$ composer require charlesassets/laravel-perfectmoney
 ```
 
 Add Provider
