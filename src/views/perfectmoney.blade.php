@@ -11,7 +11,7 @@
     <input type="text" name="PAYMENT_AMOUNT" value="{{ $PAYMENT_AMOUNT }}" placeholder="Amount">
     <input type="hidden" name="PAYMENT_UNITS" value="{{ $PAYMENT_UNITS }}">
 	<input type="hidden" name="PAYMENT_URL" value="{{ $PAYMENT_URL }}">
-	<input type="hidden" name="NOPAYMENT_URL" value="{{ $NOPAYMENT_URL_METHOD }}">
+	<input type="hidden" name="NOPAYMENT_URL" value="{{ $NOPAYMENT_URL }}">
 	@if($PAYMENT_ID)
 		<input type="hidden" name="PAYMENT_ID" value="{{ $PAYMENT_ID }}">
 	@endif
