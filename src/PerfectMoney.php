@@ -3,6 +3,7 @@
 namespace charlesassets\LaravelPerfectMoney;
 
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 /**
  * Class PerfectMoney
@@ -39,6 +40,7 @@ class PerfectMoney {
 	{
 		$this->account_id = config('perfectmoney.account_id');
 		$this->passphrase = config('perfectmoney.passphrase');
+		$this->alt_passphrase = config('perfectmoney.alternate_passphrase');
 		$this->marchant_id = config('perfectmoney.marchant_id');
     }
 	
@@ -178,10 +180,18 @@ class PerfectMoney {
 		
 		// Memo
 		$view_data['MEMO'] = null;
-		if(config('perfectmoney.suggested_memo') || isset($data['SUGGESTED_MEMO']))
+		if(config('perfectmoney.suggested_memo') || isset($data['SUGGESTED_MEMO']) || isset($data['SUGGESTED_MEMO_NOCHANGE']))
 		{
-			$view_data['MEMO'] = (isset( $data['SUGGESTED_MEMO'] ) ? $data['SUGGESTED_MEMO'] : config('perfectmoney.suggested_memo'));
-			
+			if(!isset($data['SUGGESTED_MEMO']) && !isset($data['SUGGESTED_MEMO_NOCHANGE']))
+			{
+				$view_data['MEMO_TYPE'] = (config('perfectmoney.memo_editable') ? 'SUGGESTED_MEMO' : 'SUGGESTED_MEMO_NOCHANGE');
+				$view_data['MEMO'] = config('perfectmoney.suggested_memo');
+			}
+			else
+			{
+				$view_data['MEMO_TYPE'] = (isset( $data['SUGGESTED_MEMO'] ) ? 'SUGGESTED_MEMO' : 'SUGGESTED_MEMO_NOCHANGE');
+				$view_data['MEMO'] = ( isset( $data['SUGGESTED_MEMO'] ) ? $data['SUGGESTED_MEMO'] : $data['SUGGESTED_MEMO_NOCHANGE'] );
+			}
 		}
 		
 		// Custom view
@@ -287,16 +297,24 @@ class PerfectMoney {
 			// Fetching history
 			$return_data['history'] = [];
 			for($i=1; $i < count($lines); $i++){
-			
-				$item = explode(',', $lines[$i]);
 				
+				// Skip empty lines
+				if(empty($lines[$i]))
+				{
+					break;
+				}
+			
+				// Split line into items
+				$items = explode(',', $lines[$i]);
+				
+				// Get history items
+				$history_line = [];
 				foreach($items as $key => $value)
 				{
-					$return_data['history'][] = [
-						str_replace(' ', '_', strtolower($rows[$key]))	=> $value
-					];
+					$history_line[str_replace(' ', '_', strtolower($rows[$key]))] = $value;
 				}
 				
+				$return_data['history'][] = $history_line;
 			
 			}
 			
@@ -307,9 +325,25 @@ class PerfectMoney {
 		}
 		else
 		{
-			return ['status' => 'error', 'message' => 'Invalid output'];
+			return ['status' => 'error', 'message' => $url];
 		}
 		
+	}
+	
+	public function generateHash(Request $request)
+	{
+		
+		$string = '';
+		$string .= $request->input('PAYMENT_ID') . ':';
+		$string .= $request->input('PAYEE_ACCOUNT') . ':';
+		$string .= $request->input('PAYMENT_AMOUNT') . ':';
+		$string .= $request->input('PAYMENT_UNITS') . ':';
+		$string .= $request->input('PAYMENT_BATCH_NUM') . ':';
+		$string .= $request->input('PAYER_ACCOUNT') . ':';
+		$string .= strtoupper(md5($this->alt_passphrase)) . ':';
+		$string .= $request->input('TIMESTAMPGMT');
+
+		return strtoupper(md5($string));
 		
 	}
 
