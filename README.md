@@ -47,7 +47,6 @@ PM_NOPAYMENT_URL=http://example.com/fail
 PM_NOPAYMENT_URL_METHOD=null
 PM_STATUS_URL=null
 PM_SUGGESTED_MEMO=null
-PM_MEMO_EDITABLE=true
 ```
 
 ##Customizing views (Optional)
@@ -66,6 +65,12 @@ php artisan vendor:publish --provider="charlesassets\LaravelPerfectMoney\Laravel
 
 ``` php
 PerfectMoney::render();
+```
+
+Sometimes you will need to customize the payment form. Just pass the parameters to render method .
+
+``` php
+PerfectMoney::render(['PAYMENT_UNITS' => 'EUR'], 'custom_view');
 ```
 
 ## API MODULES
