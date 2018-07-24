@@ -12,6 +12,10 @@
         {
             "name": "Charles Patterson",
             "email": "charlesassets.com@gmail.com"
+        },
+        {
+            "name": "Ariama Victor (A.K.A. OVAC BOYA)",
+            "email": "iamovac@gmail.com"
         }
     ],
     "require": {
@@ -40,6 +44,16 @@
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
+        },
+        "laravel": {
+          "providers": [
+            "charlesassets\\LaravelPerfectMoney\\LaravelPerfectMoneyServiceProvider"
+          ]
         }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
     }
 }
