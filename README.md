@@ -24,7 +24,7 @@ Add Aliases
 'PerfectMoney' => charlesassets\LaravelPerfectMoney\PerfectMoney::class,
 ```
 
-##Configuration
+### Configuration
 
 Publish Configuration file
 ```
@@ -49,7 +49,7 @@ PM_STATUS_URL=null
 PM_SUGGESTED_MEMO=null
 ```
 
-##Customizing views (Optional)
+### Customizing views (Optional)
 
 If you want to customize form, follow these steps.
 
