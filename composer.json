@@ -1,5 +1,5 @@
 {
-    "name": "charlesassets/laravel-perfectmoney", 
+    "name": "charlesassets/laravel-perfectmoney",
     "type": "library",
     "description": "Laravel Package for Perfect Money Payments",
     "keywords": [
@@ -19,8 +19,8 @@
         }
     ],
     "require": {
-		"nesbot/carbon": "~1.20",
-        "php" : ">=5.3"
+        "nesbot/carbon": "2.*",
+        "php" : "^7.1.8 || ^8.0"
     },
     "require-dev": {
         "phpunit/phpunit" : "~4.0||~5.0",
